@@ -110,18 +110,18 @@ CREATE OR REPLACE VIEW current_dept_emp AS
 flush /*!50503 binary */ logs;
 
 SELECT 'LOADING departments' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_departments.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_departments.dump ;
 SELECT 'LOADING employees' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_employees.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_employees.dump ;
 SELECT 'LOADING dept_emp' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_dept_emp.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_dept_emp.dump ;
 SELECT 'LOADING dept_manager' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_dept_manager.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_dept_manager.dump ;
 SELECT 'LOADING titles' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_titles.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_titles.dump ;
 SELECT 'LOADING salaries' as 'INFO';
-source /var/lib/mysql/dumps/test_db-master/load_salaries1.dump ;
-source /var/lib/mysql/dumps/test_db-master/load_salaries2.dump ;
-source /var/lib/mysql/dumps/test_db-master/load_salaries3.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_salaries1.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_salaries2.dump ;
+source /usr/src/mysql/dumps/test_db-master/load_salaries3.dump ;
 
-source /var/lib/mysql/dumps/test_db-master/show_elapsed.sql ;
+source /usr/src/mysql/dumps/test_db-master/show_elapsed.sql ;
