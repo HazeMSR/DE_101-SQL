@@ -49,7 +49,30 @@ docker-compose stop
 mysql db_name
 # OPTIONS:
 # -h [host_name] Indicates the url of the database
-# -p [port] Indicates the port in which the database is exposed
+# -p Indicates to use the prompt to use it as a input of the password
+# -u [user_name] Indicates the username who will be used to connect to the database
+# -e [command] Execute some MySQL command inside.
+
+# Dump a complete database and/or their procedures
+mysqldump dbname > filename.sql
+# OPTIONS:
+# --routines Export all the routines (Procedures/Functions) of the database inside the dump file
+# --triggers Export all the triggers of the database
+# --add-drop-table Add the "drop table if exists" sentence on every table
+# -p Indicates to use the prompt to use it as a input of the password
 # -u [user_name] Indicates the username who will be used to connect to the database
 
+```
+
+## Indexes
+
+```sql
+# Hash index
+CREATE INDEX "my_table_my_column_idx"
+ON "my_table"
+USING HASH("my column");
+
+# B-tree composite index
+CREATE INDEX "my_table_my_columns_idx"
+ON "my_table" ("my column1", "my_column2", "my_columnN")
 ```
