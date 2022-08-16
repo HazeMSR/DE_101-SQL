@@ -44,7 +44,7 @@ docker-compose stop
 ```
 
 ### MySQL commands
-```
+```bash
 # Run MySQL shell in the specified database
 mysql db_name
 # OPTIONS:
