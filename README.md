@@ -14,11 +14,11 @@ The Docker part use two files:
 # Start (and create if it is neccesary) the services described in the yaml file
 docker-compose up
 # OPTIONS:
-# --env-file Take an environment file to use the variables as an input for docker-compose.yml
+# --env-file [file] Take an environment file to use the variables as an input for docker-compose.yml
 # -d Detach mode: Start services in the foreground.
 
 # Execute commands to run inside the container
-docker exec
+docker exec container-name command-to-execute
 # OPTIONS:
 # -i Interactive mode: Keep STDIN open even if not attached
 # -t Allocate a pseudo-TTY: is essentially a text input output environment aka shell.
@@ -41,5 +41,15 @@ docker rmi image_name
 
 # Stops all the services of the docker-compose file
 docker-compose stop
+```
+
+### MySQL commands
+```
+# Run MySQL shell in the specified database
+mysql db_name
+# OPTIONS:
+# -h [host_name] Indicates the url of the database
+# -p [port] Indicates the port in which the database is exposed
+# -u [user_name] Indicates the username who will be used to connect to the database
 
 ```
