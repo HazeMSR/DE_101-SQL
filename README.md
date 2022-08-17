@@ -84,7 +84,7 @@ psql -d db_name
 # -h [host] Indicates the host to connect 
 # -p [port] Indicates the port to connect to the specified host of the database
 # -d [db_name] Indicates the database
-# -c [command] Run a postgres command without open the psql client
+# -c [command] Run a postgres command without open the command line
 
 # Dump a complete database
 pg_dump -d db_name > filename
