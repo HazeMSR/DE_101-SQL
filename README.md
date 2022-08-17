@@ -155,3 +155,48 @@ SELECT *
 FROM my_table
 WHERE my_column1=X AND my_column2=Y AND my_column3=Z;
 ```
+
+## Subqueries
+```
+ SELECT * FROM film;
+	
+--Subquery SELECT
+SELECT 
+f1.film_id,
+f1.rating,
+(SELECT MAX(f2.rental_rate)FROM film f2)
+FROM film f1;
+
+--Subquery FROM
+-- This returns the number of rows of our query
+SELECT COUNT (*)
+FROM (
+SELECT
+	f1.film_id,
+	f1.rental_duration
+FROM 
+	film f1,
+	(SELECT
+		MIN(rental_duration) AS r
+		FROM film f2
+	) subquery1
+WHERE
+	f1.rental_duration > subquery1.r) AS one
+
+--Subquery WHERE
+SELECT COUNT(*)
+FROM (
+SELECT
+	f1.title,
+	f1.last_update
+FROM film f1
+WHERE
+	f1.last_update IN (
+		SELECT f2.last_update AS last_update
+		FROM film f2
+		WHERE f2.last_update 
+			BETWEEN '2007-09-10 17:46:03.905795'
+			AND '2007-09-11 17:46:03.905795'
+	)
+) AS query1
+```
