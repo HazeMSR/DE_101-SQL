@@ -140,6 +140,9 @@ USING HASH("my column");
 CREATE INDEX "my_table_my_columns_idx"
 ON "my_table" ("my_column1", "my_column2", "my_columnN")
 
+# Delete index
+DROP INDEX "my_table_my_column_idx";
+
 # Postgres analizer
 EXPLAIN(analyze,verbose)
 SELECT * 
