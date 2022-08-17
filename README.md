@@ -6,10 +6,10 @@ It is nicely demonstrated in the Table of Contents of the Markdown Cheatsheet.
 
 # Table of Contents  
 - [Docker commands](#Docker)
-- [MySQL commands](#MySQL)
-- [Postgres commands](#Postgres)
-- [Miscellaneous commands](#Miscellaneous)
-- [Indexes](#Indexes)
+- [MySQL commands](#MySQL commands) <a name="MySQL commands"/>
+- [Postgres commands](#Postgres commands) <a name="Postgres commands"/>
+- [Miscellaneous commands](#Miscellaneous commands) <a name="Miscellaneous commands"/>
+- [Indexes](#Indexes commands) <a name="Indexes commands"/>
 - [Subqueries](#Subqueries)
 
 ## Docker
