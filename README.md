@@ -96,6 +96,8 @@ docker-compose --env-file .env.dev up
 ### MySQL
 # Import a database
 docker exec –it mysql44 mysql –u username –p dbname –e 'source /usr/src/mysql/dumps/dump.sql'
+Password:
+password9012
 
 # Export a database
 docker exec –it mysql /bin/bash
@@ -113,6 +115,8 @@ docker exec –it postgres44 /bin/bash
 cd /usr/src/postgres
 
 psql -h localhost –p5544 -U postgres -d databasename < filename
+Password:
+password9012
 
 # Export a database
 docker exec –it postgres44 /bin/bash
@@ -120,6 +124,8 @@ docker exec –it postgres44 /bin/bash
 cd /usr/src/postgres
 
 pg_dump -h localhost –p5544 -U postgres -W -d databasename > filename
+Password:
+password9012
 ```
 
 ## Indexes
