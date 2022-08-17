@@ -210,3 +210,69 @@ WHERE
 	)
 ) AS query1
 ```
+## Joins
+```sql
+SELECT*FROM public.film;
+
+
+SELECT
+	f.title,
+	c.name
+FROM film f
+INNER JOIN film_category fc
+	ON fc.film_id = f.film_id
+INNER JOIN category c
+	ON c.category_id = fc.category_id
+ORDER BY c.name DESC
+
+SELECT 
+	city_id,
+	city
+FROM (
+	SELECT
+		city_id,
+		city
+	FROM
+		city
+	WHERE
+		city_id = 125
+) query1
+UNION
+SELECT 
+	city_id,
+	city
+FROM (
+	SELECT
+		city_id,
+		city,
+	country_id
+	FROM
+		city
+	WHERE
+		country_id = 103
+) query2;
+
+SELECT
+	rating,
+	AVG(rental_duration)
+FROM film
+GROUP BY
+	rating;
+	
+SELECT
+	rental_duration,
+	rating
+FROM film
+GROUP BY
+	rating, rental_duration
+HAVING
+	rating = 'NC-17';
+	
+SELECT
+	rental_duration,
+	rating,
+	RANK() OVER(PARTITION BY rating ORDER BY rental_duration)
+FROM film
+GROUP BY
+	rating, rental_duration;
+```
