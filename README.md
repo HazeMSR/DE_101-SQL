@@ -43,13 +43,13 @@ docker rmi image_name
 docker-compose stop
 ```
 
-### MySQL commands
+## MySQL commands
 ```bash
 # Run MySQL shell in the specified database
 mysql db_name
 # OPTIONS:
 # -h [host_name] Indicates the url of the database
-# -p Indicates to use the prompt to use it as a input of the password
+# -p Indicates to use the prompt to use it as an input for the password
 # -u [user_name] Indicates the username who will be used to connect to the database
 # -e [command] Execute some MySQL command inside.
 
@@ -61,7 +61,65 @@ mysqldump dbname > filename.sql
 # --add-drop-table Add the "drop table if exists" sentence on every table
 # -p Indicates to use the prompt to use it as a input of the password
 # -u [user_name] Indicates the username who will be used to connect to the database
+```
 
+## Postgres commands
+
+```bash
+# Run Postgres shell in the specified database
+psql -d db_name
+# OPTIONS:
+# -U [user_name] Indicate the user who will be used to connect to the database
+# -W Indicates to use the prompt to use it as an input for the password
+# -h [host] Indicates the host to connect 
+# -p [port] Indicates the port to connect to the specified host of the database
+# -d [db_name] Indicates the database
+# -c [command] Run a postgres command without open the psql client
+
+# Dump a complete database
+pg_dump -d db_name > filename
+# -U [user_name] Indicate the user who will be used to connect to the database
+# -W Indicates to use the prompt to use it as an input for the password
+# -h [host] Indicates the host to connect 
+# -p [port] Indicates the port to connect to the specified host of the database
+# -d [db_name] Indicates the database
+```
+
+## Miscellaneous commands
+
+```bash
+
+### Docker
+# Run all the services using a .env file
+docker-compose --env-file .env.dev up
+
+### MySQL
+# Import a database
+docker exec –it mysql44 mysql –u username –p dbname –e 'source /usr/src/mysql/dumps/dump.sql'
+
+# Export a database
+docker exec –it mysql /bin/bash
+
+cd /usr/src/mysql/dumps
+
+mysqldump --add-drop-table --routines --triggers -u root -p dbname > dbname.sql
+Password:
+password9012
+
+### Postgres
+# Import a database
+docker exec –it postgres44 /bin/bash
+
+cd /usr/src/postgres
+
+psql -h localhost –p5544 -U postgres -d databasename < filename
+
+# Export a database
+docker exec –it postgres44 /bin/bash
+
+cd /usr/src/postgres
+
+pg_dump -h localhost –p5544 -U postgres -W -d databasename > filename
 ```
 
 ## Indexes
@@ -74,5 +132,17 @@ USING HASH("my column");
 
 # B-tree composite index
 CREATE INDEX "my_table_my_columns_idx"
-ON "my_table" ("my column1", "my_column2", "my_columnN")
+ON "my_table" ("my_column1", "my_column2", "my_columnN")
+
+# Postgres analizer
+EXPLAIN(analyze,verbose)
+SELECT * 
+FROM my_table
+WHERE my_column1=X AND my_column2=Y AND my_column3=Z;
+
+# MySQL analizer
+EXPLAIN ANALYZE
+SELECT * 
+FROM my_table
+WHERE my_column1=X AND my_column2=Y AND my_column3=Z;
 ```
