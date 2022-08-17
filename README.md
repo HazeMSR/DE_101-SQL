@@ -157,7 +157,7 @@ WHERE my_column1=X AND my_column2=Y AND my_column3=Z;
 ```
 
 ## Subqueries
-```
+```sql
  SELECT * FROM film;
 	
 --Subquery SELECT
