@@ -5,10 +5,10 @@ This repository will be hosting the current directories of the databases contain
 It is nicely demonstrated in the Table of Contents of the Markdown Cheatsheet.
 
 # Table of Contents  
-- [Docker commands](#Docker commands)
-- [MySQL commands](#MySQL commands)
-- [Postgres commands](#Postgres commands)
-- [Miscellaneous commands](#Miscellaneous commands)
+- [Docker commands](#Docker)
+- [MySQL commands](#MySQL)
+- [Postgres commands](#Postgres)
+- [Miscellaneous commands](#Miscellaneous)
 - [Indexes](#Indexes)
 - [Subqueries](#Subqueries)
 
